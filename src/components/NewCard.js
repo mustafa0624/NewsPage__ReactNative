@@ -10,7 +10,7 @@ const Cards = ({ daten }) => {
             style={styles.image}
             />
             <Text style={styles.title}>{daten.title}</Text>
-            <Text>{daten.description}</Text>
+            <Text style={styles.desc}>{daten.description}</Text>
         </View>
     )
 }
@@ -45,9 +45,14 @@ const styles = StyleSheet.create({
     image:{
         alignSelf:"center",
         width:Dimensions.get("window").width *0.90,
-        height:Dimensions.get("window").height*0.25
+        height:Dimensions.get("window").height*0.25,
+        borderRadius:10
     },
     title:{
-        fontWeight:"bold"
+        fontWeight:"bold",
+        fontSize:17
+    },
+    desc:{
+        textAlign:"justify"
     }
 })

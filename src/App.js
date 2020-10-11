@@ -1,7 +1,8 @@
 import React from "react";
-import { View, StyleSheet, Text, SafeAreaView, FlatList } from "react-native";
+import { View, StyleSheet, Text, SafeAreaView, FlatList, ScrollView } from "react-native";
 
-import Cards  from "./components/NewCard"
+import Cards  from "./components/NewCard";
+import Banner from "./components/Banner";
 const news_data = [
   {
     id: 0,
@@ -80,16 +81,43 @@ const banner_data = [
       'https://images.mktw.net/im-242755/social',
   },
 ];
+
+
 const App = () => {
+
+  const renderData = ({item})=> <Cards daten={item} />
+ 
+  const listBanner= ()=>{
+  return  <ScrollView horizontal showsHorizontalScrollIndicator={true}>
+    {
+      banner_data.map((value)=>{
+        return( 
+          <Banner 
+          image = {value.imageUrl}
+          />
+          
+        )
+  
+      })
+    }</ScrollView>
+
+  }
+
 
   return (
     <SafeAreaView  style={{flex:1}}>
       <View style={styles.container}>
+        
+
+
+      
 
       {
         <FlatList
         data={news_data}
-        renderItem={({item})=> <Cards daten={item} />}
+        renderItem={renderData}
+        numColumns={2}
+        ListHeaderComponent={listBanner}
         />
       }
 
