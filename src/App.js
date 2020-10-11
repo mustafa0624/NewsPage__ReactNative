@@ -86,22 +86,50 @@ const banner_data = [
 const App = () => {
 
   const renderData = ({item})=> <Cards daten={item} />
- 
-  const listBanner= ()=>{
-  return  <ScrollView horizontal showsHorizontalScrollIndicator={true}>
-    {
-      banner_data.map((value)=>{
-        return( 
-          <Banner 
-          image = {value.imageUrl}
-          />
-          
-        )
-  
-      })
-    }</ScrollView>
 
+
+
+  const listBanner2 =()=>{
+    return(
+
+      <FlatList
+      horizontal
+      data={banner_data}
+      renderItem={({item})=> <Banner deger ={item}/>}
+      />
+    )
   }
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // const listBanner= ()=>{
+  // return  <ScrollView horizontal showsHorizontalScrollIndicator={true}>
+  //   {
+  //     banner_data.map((value)=>{
+  //       return( 
+  //         <Banner 
+  //         image = {value.imageUrl}
+  //         />
+          
+  //       )
+  
+  //     })
+  //   }</ScrollView>
+
+  // }
 
 
   return (
@@ -116,8 +144,9 @@ const App = () => {
         <FlatList
         data={news_data}
         renderItem={renderData}
-        numColumns={2}
-        ListHeaderComponent={listBanner}
+        // numColumns={2}
+        // contentContainerStyle={{justifyContent:"space-between"}}
+        ListHeaderComponent={listBanner2}
         />
       }
 

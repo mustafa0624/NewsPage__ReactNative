@@ -3,13 +3,13 @@ import { View, StyleSheet, Text, SafeAreaView, FlatList,Image, Dimensions, Scrol
 
 
 
-const Banner =(props)=>{
+const Banner =({deger})=>{
 
     return(
         
         <View>
             <Image 
-            source={{uri:props.image}}
+            source={{uri:deger.imageUrl}}
             style={styles.image}
             />
         </View>
