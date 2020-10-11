@@ -1,123 +1,127 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React from "react";
+import { View, StyleSheet, Text, SafeAreaView, FlatList } from "react-native";
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Image,
-  
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import Hyperlink from 'react-native-hyperlink';
-
+import Cards  from "./components/NewCard"
+const news_data = [
+  {
+    id: 0,
+    author: 'Omkar Godbole',
+    title: 'Bulls Exit BitMEX Bitcoin Futures Market',
+    description:
+      'Since the announcement from U.S. regulators, BitMEX has witnessed an outflow of more than 40,000 bitcoins, currently worth more than $422 million.',
+    imageUrl:
+      'https://static.coindesk.com/wp-content/uploads/2020/10/BitMEX-1180x628.png',
+  },
+  {
+    id: 1,
+    author: 'Benjamin Pirus',
+    title: 'Coinbase customers can now dodge a bank',
+    description:
+      'New update from Coinbase quickens the transmutation of crypto into fiat. Coinbase has unveiled a faster way for its customers to move digital currencies out of crypto and into their bank accounts.',
+    imageUrl:
+      'https://static.coindesk.com/wp-content/uploads/2020/10/GettyImages-alex-wong-1-1024x628.jpg',
+  },
+  {
+    id: 2,
+    author: 'Malwarebytes Labs',
+    title: 'VideoBytes: Ransomware gets wasted!',
+    description:
+      "On today's VideoBytes, we look at how ransomware is on the rise, attacking corporations with malware that not only encrypts files, but also steals it.",
+    imageUrl:
+      'https://blog.malwarebytes.com/wp-content/uploads/2020/09/shutterstock_640824457-600x410.jpg',
+  },
+  {
+    id: 3,
+    author: 'Daniel Sparks',
+    title: 'Why Tesla Stock Fell Sharply Friday Morning - Motley Fool',
+    description:
+      'Shares are down despite Tesla reporting record third-quarter deliveries. Shares of electric-car maker Tesla(NASDAQ:TSLA) fell Friday morning, declining 5% a few minutes into market open.',
+    imageUrl: 'https://g.foolcdn.com/editorial/images/593799/stock-down.jpg',
+  },
+  {
+    id: 4,
+    author: 'Jessica Bursztynsky',
+    title: 'Twilio hits new 52-week high as stock',
+    description:
+      'Shares of Twilio extended its gains into Friday, reaching a 52-week high, after the company said in a filing that it expects better-than-expected third-quarter revenue.',
+    imageUrl:
+      'https://image.cnbcfm.com/api/v1/image/105737636-1550147305726gettyimages-1034802076rr.jpg?v=1601647142',
+  },
+];
+const banner_data = [
+  {
+    id: 0,
+    text: "Best Prime Day 2020 Alexa",
+    imageUrl:
+      'https://cnet4.cbsistatic.com/img/7bnQrNgv4FtUTWdPZYO29fufx-A=/1200x630/2019/11/20/0aff1d1e-92fc-4b88-aee5-850c550e09a6/cnet-black-friday-best-buy-echo-show-5.jpg',
+  },
+  {
+    id: 1,
+    text: "Stocks After Amazon",
+    imageUrl:
+      'https://s.wsj.net/public/resources/MWimages/MW-GP644_MicroS_ZG_20180906154215.jpg',
+  },
+  {
+    id: 2,
+    text: "Levi's Most Popular Jeans",
+    imageUrl:
+      'https://s.yimg.com/os/creatr-uploaded-images/2020-10/e9b733b0-09cf-11eb-bfce-a2a6e6d17fa5',
+  },
+  {
+    id: 3,
+    text: "Social Security Benefits?",
+    imageUrl:
+      'https://s.marketwatch.com/public/resources/images/MW-IQ535_ss_pay_ZG_20201009111853.jpg',
+  },
+  {
+    id: 4,
+    text: "Columbus Day and Veterans Day",
+    imageUrl:
+      'https://images.mktw.net/im-242755/social',
+  },
+];
 const App = () => {
-  
+
   return (
-    <ScrollView>
+    <SafeAreaView  style={{flex:1}}>
       <View style={styles.container}>
 
-     <Hyperlink linkDefault={ true }>
-      https://www.clarusway.com 
-       
-       </Hyperlink> 
-    
-    
-   
-     
-        <Text style={styles.news}>News</Text>
-      
-        <View style={styles.sections}>
-          <Image
-            style={styles.images}
-            source={require("./img/eu2.jpg")} /> 
-          <Text><Text style={{ fontWeight: "bold" }}>President of the European Commission Ursula </Text>European
-           Commission President Ursula von der Leyen is self-isolating  participating in a meeting that was 
-           attended by a person who subsequently tested positive for Covid-19, she announced on Twitter.</Text>
-        </View>
+      {
+        <FlatList
+        data={news_data}
+        renderItem={({item})=> <Cards daten={item} />}
+        />
+      }
 
 
-        <View style={styles.sections}>
-          <Image
-            style={styles.images}
-            source={require("./img/airbus.jpg")}
-            />
-          <Text><Text style={{ fontWeight: "bold" }}>(CNN) </Text> — It looks like a spaceship, runs on fuel that up until a few years ago experts were calling "crazy," and has barely left the drawing board, but in theeyes of one of the world's leading aircraft manufacturers.</Text>
-        </View>
-
-        <View style={styles.sections}>
-          <Image
-            source={require("./img/sport.jpg")}
-            style={styles.images}
-          />
-          <Text style={{ fontWeight: "bold" }}>Sam Burgess retired in 2019 and took up </Text>
-          <Text>Sam Burgess has stepped down from his coaching role with the South Sydney Rabbitohs following what the club calls "very concerning" allegations against the team's former star player.</Text>
 
 
-        </View>
+
+
+        {/* <Cards /> */}
+
+
+
 
       </View>
-    </ScrollView>
+    </SafeAreaView>
 
   )
 
-};
+
+}
+
+
 
 
 const styles = StyleSheet.create({
   container:{
-    justifyContent:"center",
-    alignItems:"center",
     flex:1,
-    padding:10
-  },
-  news: {
-    fontSize: 25,
-    fontWeight: "bold",
-    // marginLeft: 5,
-  },
-  sections: {
-    borderWidth: 1,
-    borderColor: "rgba(149, 165, 166,0.5)",
-    
-    padding: 5,
-    borderRadius: 5,
-    marginTop: 10,
-    
-  },
-
-  images: {
+    // justifyContent: 'center',
     alignItems:"center",
-    resizeMode: "cover",
-    width: "auto",
-    height: 260,
-    //  marginLeft:5,
-    //  marginTop:5,
-    borderRadius: 10
-
+    
   }
-
-
-
 })
-
-
 
 
 
